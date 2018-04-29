@@ -7,8 +7,12 @@
 //
 
 import UIKit
-#if canImport(SimulatorStatusMagic)
-import SimulatorStatusMagic
+<#if canImport(SimulatorStatusMagic)
+>>>>>>>+master
+======
+##if SCREENSHOTS
+>>>>>>>-b9b62bc
+mport SimulatorStatusMagic
 #endif
 
 @UIApplicationMain
@@ -20,9 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
 
 		window?.tintColor = .appTintColor
-
+<
 		#if canImport(SimulatorStatusMagic)
-		SDStatusBarManager.sharedInstance().enableOverrides()
+>>>>>>>+master
+======
+			
+		#if SCREENSHOTS
+>>>>>>>-b9b62bc
+	SDStatusBarManager.sharedInstance().enableOverrides()
 		#endif
 
 		return true
