@@ -100,11 +100,40 @@ class DocumentBrowserViewController: UIDocumentBrowserViewController {
 			
 		}
 	
-	}
+<	}
 	
 >>>>>>>-b9b62bc
 @objc
-	func showSettings() {
+>>>>>>>+master
+======
+		var snapshotDocumentIndex = 0
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		if UserDefaults.standard.bool(forKey: "FASTLANE_SNAPSHOT") == true || true {
+			
+			var snapshotDocuments = ["The Crazy Ones.txt", "Planets.txt", "Circle.svg"]
+			
+			if self.view.bounds.width > 600 {
+				snapshotDocuments.append("Pharaoh.txt")
+			} else {
+				snapshotDocuments.append("Mouse.txt")
+			}
+			
+			let url = Bundle.main.url(forResource: snapshotDocuments[snapshotDocumentIndex], withExtension: nil)!
+			
+			presentDocument(at: url)
+			
+			snapshotDocumentIndex += 1
+			
+		}
+	
+	}
+	
+	@objc
+>>>>>>>-b9b62bc
+func showSettings() {
 
 		let settingsVC = self.storyboard!.instantiateViewController(withIdentifier: "SettingsViewController")
 

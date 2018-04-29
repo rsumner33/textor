@@ -55,13 +55,19 @@ class DocumentViewController: UIViewController {
 		
 		textView.text = ""
 		
-<>>>>>>>+master
+<<>>>>>>>+master
 ======
 			
 		
 >>>>>>>-b9b62bc
 	document?.open(completionHandler: { [weak self] (success) in
+>>>>>>>+master
+======
 			
+		
+		document?.open(completionHandler: { [weak self] (success) in
+>>>>>>>-b9b62bc
+		
 			guard let `self` = self else {
 				return
 			}
